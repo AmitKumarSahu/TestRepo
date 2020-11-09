@@ -1,6 +1,6 @@
 public class MaxConsecutiveOnes {
     public static void main(String[] args){
-        int nums[] = {0,1,1,0,1,1,1};
+        int nums[] = {0};
         System.out.println("Most consecutive Number Of Ones Are :"+findMaxConsecutiveOnes(nums));
     }
     public static int findMaxConsecutiveOnes(int[] nums) {
