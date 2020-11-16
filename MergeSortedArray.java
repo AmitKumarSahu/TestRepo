@@ -1,20 +1,23 @@
 public class MergeSortedArray {
     public static void main(String[] args){
-        int arr1[] = {};
+        int arr1[] = {1,2,3,0,0,0};
         int arr2[] = {4,5,6};
-        mergeSortedArray(arr1,arr2);
+        mergeSortedArray(arr1,3,arr2,3);
     }
-    public static void mergeSortedArray(int nums1[] , int nums2[]){
-        int newArr[] = new int[nums1.length+nums2.length];
+    public static void mergeSortedArray(int[] nums1, int x, int[] nums2, int y) {
+        int newArr[] = new int[x];
         int l=0,m=0,k=0;
-        for(int i=0;i<newArr.length;i++){
-            if(l<nums1.length && m<nums2.length){
-                if(nums1[l] > nums2[m]){
-                    newArr[i] = nums2[m];
+        for(int i=0;i<x;i++){
+            newArr[i] = nums1[i];
+        }
+        for(int i=0;i<nums1.length;i++){
+            if(l<x && m<y){
+                if(newArr[l] > nums2[m]){
+                    nums1[i] = nums2[m];
                     m++;
                 }
                 else{
-                    newArr[i] = nums1[l];
+                    nums1[i] = newArr[l];
                     l++;
                 }
             }
@@ -23,15 +26,15 @@ public class MergeSortedArray {
             }
             k=i+1;
         }
-        if(l<nums1.length){
-            for(int i=l;i<nums1.length;i++){
-                newArr[k] = nums1[i];
+        if(l<newArr.length){
+            for(int i=l;i<newArr.length;i++){
+                nums1[k] = newArr[i];
                 k++;
             }
         }
         if(m<nums2.length){
             for(int i=m;i<nums2.length;i++){
-                newArr[k] = nums2[i];
+                nums1[k] = nums2[i];
                 k++;
             }
         }
